@@ -1,0 +1,50 @@
+<html>
+  <body>
+    <div class="page-wrapper">
+      <div class="todo-container">
+        <h1>// Ronit's Todo List</h1>
+
+        <div class="task-input">
+          <input
+            [(ngModel)]="task"
+            type="text"
+            placeholder="// Add your next task here"
+          />
+          <button (click)="add()">Add</button>
+        </div>
+
+        <div class="task-section">
+          <h3>// Tasks</h3>
+  @for (task of tasklist; track task.id) {
+          <div class="task-item">
+
+            <span>{{ task.id }} {{task.task}}</span>
+            <div class="task-actions">
+              <button (click)="complete(task.id)" title="Complete">✅</button>
+              
+              <button (click)="del(task.id)" title="Delete">🗑️</button>
+
+            </div>
+
+          </div>
+  }
+
+        </div>
+
+        <div class="task-section">
+          <h3>// Completed</h3>
+
+         @for (task of completedTasks; track task.id) {
+    <div class="task-item completed">
+      <span>✔️ {{ task.task }}</span>
+      <div class="task-actions">
+        <button (click)="undo(task.id)" title="Undo">↩️</button>
+        <button (click)="del(task.id)" title="Delete">🗑️</button>
+      </div>
+    </div>
+  }
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
