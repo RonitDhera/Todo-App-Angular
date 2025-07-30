@@ -9,6 +9,7 @@
             [(ngModel)]="task"
             type="text"
             placeholder="// Add your next task here"
+            (keyup.enter)="add()"
           />
           <button (click)="add()">Add</button>
         </div>
@@ -21,7 +22,7 @@
             <span>{{ task.id }} {{task.task}}</span>
             <div class="task-actions">
               <button (click)="complete(task.id)" title="Complete">✅</button>
-              
+
               <button (click)="del(task.id)" title="Delete">🗑️</button>
 
             </div>
